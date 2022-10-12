@@ -13,55 +13,64 @@ const Menu = helpers.defineMultiStyleConfig({
   baseStyle: {
     button: {
       fontWeight: 'medium',
-      py: '2',
       px: '4',
-      _light: {
-        color: 'gray.100',
-        bg: 'teal.500',
-        _hover: {
-          bg: 'teal.700',
-        },
+      py: '2',
+      bg: 'teal.500',
+      color: 'gray.200',
+      _hover: {
+        bg: 'teal.600',
+        color: 'white',
       },
     },
     list: {
-      py: '0',
-      borderRadius: 'none',
-      _light: {
-        bg: 'teal.500',
-      },
+      py: '4',
+      borderRadius: 'xl',
+      border: 'none',
+      bg: 'teal.500',
     },
     item: {
       py: '2',
       px: '4',
       color: 'gray.200',
-      fontWeight: 'medium',
-      _light: {
-        _hover: {
-          bg: 'teal.400',
-        },
-        _focus: {
-          bg: 'teal.400',
-        },
+      _hover: {
+        bg: 'teal.600',
+      },
+      _focus: {
+        bg: 'teal.600',
       },
     },
     groupTitle: {
       textTransform: 'uppercase',
-      color: 'gray.100',
-      px: '0',
+      color: 'white',
+      my: '1',
       textAlign: 'center',
-      mb: '0',
       fontWeight: 'semibold',
       letterSpacing: 'wider',
+      opacity: '0.7',
     },
     command: {
       opacity: '0.8',
       fontFamily: 'mono',
       fontSize: 'sm',
+      letterSpacing: 'tighter',
+      pl: '4',
     },
     divider: {
-      opacity: '0.5',
       my: '4',
+      borderColor: 'white',
       borderBottom: '2px dotted',
+    },
+  },
+  variants: {
+    left: {
+      button: {
+        borderLeftRadius: 'full',
+      },
+    },
+    right: {
+      button: {
+        borderRightRadius: 'full',
+      },
     },
   },
 });
