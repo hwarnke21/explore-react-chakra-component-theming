@@ -1,9 +1,6 @@
 import React from 'react';
 import {
   ChakraProvider,
-  Container,
-  Heading,
-  HStack,
   Menu,
   MenuButton,
   MenuList,
@@ -12,87 +9,77 @@ import {
   MenuGroup,
   MenuOptionGroup,
   MenuDivider,
-  Button,
-  Portal,
-  forwardRef,
+  Box,
+  Center,
 } from '@chakra-ui/react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { ChevronDownIcon } from '@chakra-ui/icons';
 import theme from './theme';
+import { ColorModeSwitcher } from './ColorModeSwitcher';
 
-function App() {
+export default function App() {
   return (
     <ChakraProvider theme={theme}>
-      <Container minW="container.xl" centerContent>
-        <Heading my={8}>React + Chakra Menu Theming</Heading>
-        <ColorModeSwitcher justifySelf="flex-end" />
-        <HStack spacing={8} mt={8}>
-          <Menu closeOnSelect={false} closeOnBlur={false}>
-            <MenuButton>Simple Menu</MenuButton>
+      <Box position="relative" h="100vh" p={12}>
+        <Center>
+          <Menu variant="left">
+            <MenuButton>File</MenuButton>
             <MenuList>
-              <MenuItem command="Ctrl + D">Download</MenuItem>
-              <MenuItem>Create a Copy</MenuItem>
-              <MenuItem>Mark as Draft</MenuItem>
-              <MenuItem>Delete</MenuItem>
-              <MenuItem>Attend a Workshop</MenuItem>
+              <MenuItem command="Ctrl + N">New File</MenuItem>
+              <MenuItem command="Ctrl + O">Open File</MenuItem>
               <MenuDivider />
-              <MenuGroup title="Help">
-                <MenuItem>Docs</MenuItem>
-                <MenuItem>FAQ</MenuItem>
+              <MenuGroup title="Save">
+                <MenuItem command="Ctrl + S">Save</MenuItem>
+                <MenuItem command="Ctrl + Shift + S">Save As...</MenuItem>
+                <MenuItem command="Ctrl + Alt + S">Save All</MenuItem>
               </MenuGroup>
               <MenuDivider />
-              <MenuOptionGroup title="Country" type="checkbox">
-                <MenuItemOption value="email">Email</MenuItemOption>
-                <MenuItemOption value="phone">Phone</MenuItemOption>
-                <MenuItemOption value="country">Country</MenuItemOption>
-              </MenuOptionGroup>
+              <MenuItem>Exit</MenuItem>
             </MenuList>
           </Menu>
           <Menu>
-            <MenuButton
-              as={Button}
-              colorScheme="pink"
-              rightIcon={<ChevronDownIcon />}
-            >
-              Groups Menu
-            </MenuButton>
+            <MenuButton>Edit</MenuButton>
             <MenuList>
-              <MenuGroup title="Profile">
-                <MenuItem>My Account</MenuItem>
-                <MenuItem>Payments </MenuItem>
-              </MenuGroup>
+              <MenuItem command="Ctrl + Z">Undo</MenuItem>
+              <MenuItem command="Ctrl + Y">Redo</MenuItem>
               <MenuDivider />
-              <MenuGroup title="Help">
-                <MenuItem>Docs</MenuItem>
-                <MenuItem>FAQ</MenuItem>
+              <MenuGroup>
+                <MenuItem command="Ctrl + X">Cut</MenuItem>
+                <MenuItem command="Ctrl + C">Copy</MenuItem>
+                <MenuItem command="Ctrl + V">Paste</MenuItem>
               </MenuGroup>
             </MenuList>
           </Menu>
-          <Menu closeOnSelect={false}>
-            <MenuButton
-              as={Button}
-              colorScheme="blue"
-              rightIcon={<ChevronDownIcon />}
-            >
-              Options Menu
-            </MenuButton>
-            <MenuList minWidth="240px">
-              <MenuOptionGroup defaultValue="asc" title="Order" type="radio">
-                <MenuItemOption value="asc">Ascending</MenuItemOption>
-                <MenuItemOption value="desc">Descending</MenuItemOption>
-              </MenuOptionGroup>
+          <Menu variant="right">
+            <MenuButton>View</MenuButton>
+            <MenuList>
+              <MenuItem command="Ctrl + F">Full Screen Mode</MenuItem>
+              <MenuItem command="Ctrl + R">Reading Mode</MenuItem>
               <MenuDivider />
-              <MenuOptionGroup title="Country" type="checkbox">
-                <MenuItemOption value="email">Email</MenuItemOption>
-                <MenuItemOption value="phone">Phone</MenuItemOption>
-                <MenuItemOption value="country">Country</MenuItemOption>
+              <MenuGroup title="Zoom">
+                <MenuItem command="Ctrl + 1">Actual Size</MenuItem>
+                <MenuItem command="Ctrl + 2">Fit Width</MenuItem>
+                <MenuItem command="Ctrl + 3">Height</MenuItem>
+              </MenuGroup>
+              <MenuDivider />
+              <MenuOptionGroup
+                title="Display Size"
+                type="radio"
+                defaultValue={'standard'}
+              >
+                <MenuItemOption value="small" closeOnSelect={false}>
+                  Small
+                </MenuItemOption>
+                <MenuItemOption value="standard" closeOnSelect={false}>
+                  Standard
+                </MenuItemOption>
+                <MenuItemOption value="large" closeOnSelect={false}>
+                  Large
+                </MenuItemOption>
               </MenuOptionGroup>
             </MenuList>
           </Menu>
-        </HStack>
-      </Container>
+        </Center>
+        <ColorModeSwitcher position="absolute" bottom={4} left={4} />
+      </Box>
     </ChakraProvider>
   );
 }
-
-export default App;
