@@ -11,14 +11,22 @@ import {
   MenuDivider,
   Box,
   Center,
+  InputGroup,
+  InputLeftAddon,
+  Input,
+  InputRightElement,
+  Icon,
+  SimpleGrid,
+  GridItem,
 } from '@chakra-ui/react';
 import theme from './theme';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
+import { FaPhone } from 'react-icons/fa';
 
 export default function App() {
   return (
     <ChakraProvider theme={theme}>
-      <Box position="relative" h="100vh" p={12}>
+      <Box position="relative" h="100vh" p={12} maxW="container.lg" mx="auto">
         <Center>
           <Menu variant="left">
             <MenuButton>File</MenuButton>
@@ -78,6 +86,19 @@ export default function App() {
             </MenuList>
           </Menu>
         </Center>
+        <SimpleGrid gap={12} p={12} columns={2}>
+          <Input placeholder="Themed Outline Input" />
+          <Input placeholder="Themed Filled Input" variant="filled" />
+          <GridItem colSpan={2}>
+            <InputGroup variant="custom" colorScheme="purple">
+              <InputLeftAddon>Phone:</InputLeftAddon>
+              <Input placeholder="Themed Custom Input" />
+              <InputRightElement pointerEvents="none">
+                <Icon as={FaPhone} color="green.400" />
+              </InputRightElement>
+            </InputGroup>
+          </GridItem>
+        </SimpleGrid>
         <ColorModeSwitcher position="absolute" bottom={4} left={4} />
       </Box>
     </ChakraProvider>
