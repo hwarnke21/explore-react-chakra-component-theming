@@ -20,7 +20,7 @@ export default function App() {
     <ChakraProvider theme={theme}>
       <Box position="relative" h="100vh" p={12}>
         <Center>
-          <Menu variant="left">
+          <Menu variant="roundLeft">
             <MenuButton>File</MenuButton>
             <MenuList>
               <MenuItem command="Ctrl + N">New File</MenuItem>
@@ -48,7 +48,7 @@ export default function App() {
               </MenuGroup>
             </MenuList>
           </Menu>
-          <Menu variant="right">
+          <Menu variant="roundRight">
             <MenuButton>View</MenuButton>
             <MenuList>
               <MenuItem command="Ctrl + F">Full Screen Mode</MenuItem>
