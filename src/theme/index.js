@@ -1,9 +1,9 @@
 import { extendTheme } from '@chakra-ui/react';
-import { menuTheme } from './components/Menu';
+// import { componentTheme } from './components/Component';
 
 const theme = extendTheme({
   components: {
-    Menu: menuTheme,
+    // Component: componentTheme,
   },
 });
 
