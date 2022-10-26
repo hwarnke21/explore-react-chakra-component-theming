@@ -1,9 +1,9 @@
 import { extendTheme } from '@chakra-ui/react';
-// import { componentTheme } from './components/Component';
+import { tabsTheme } from './components/Tabs';
 
 const theme = extendTheme({
   components: {
-    // Component: componentTheme,
+    Tabs: tabsTheme,
   },
 });
 
